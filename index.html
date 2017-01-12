@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>test-task</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--libraries css-->
+    <link href="lib/bootstrap-grid/bootstrap.css" rel="stylesheet">
+    <!--common links-->
+    <link href="css/normalize.css" rel="stylesheet">
+    <link href="css/fonts.css" rel="stylesheet">
+    <link href="css/common.css" rel="stylesheet">
+    <link href="css/media.css" rel="stylesheet">
+
+</head>
+<body ng-app="pictureApp">
+
+<!--CODE HERE-->
+<div ng-app="pictureApp" ng-controller="pictureCtrl">
+    <div class="menu">
+        <div>
+            <span>Choose the count of loading images: </span><input type="number" ng-model="countToLoad">
+        </div>
+        <div>
+            <input type="checkbox" ng-model="checkInfScr"><span>Activate infinite scroll?</span>
+
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-4" ng-repeat="pic in pixelPictures | limitTo: countView">
+                <img ng-src="{{pic.src_big}}" width="300" height="250" ng-click="removeItem($index)">
+            </div>
+        </div>
+    </div>
+</div>
+<!--CODE HERE-->
+
+
+
+<!--libraries js-->
+<script src="lib/angular/angular.js"></script>
+<script src="lib/angular/angularModules.js"></script>
+<script src="lib/angular/angularController.js"></script>
+<!--common js-->
+<script src="js/common.js"></script>
+
+</body>
+</html>
